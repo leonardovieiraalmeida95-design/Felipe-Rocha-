@@ -1,0 +1,42 @@
+name: Build Next.js site for GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-build
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Export static site
+        run: npm run build
+
+      - name: Publish static export into Pages source
+        run: |
+          cp -R out/. .
+          touch .nojekyll
+
+      - name: Commit generated site
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: publish Next.js static export"
+          file_pattern: "."

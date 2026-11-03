@@ -1,0 +1,6 @@
+import type { Metadata, Viewport } from "next";
+import type { ReactNode } from "react";
+import "./globals.css";
+export const metadata: Metadata = { title: "Casa de Carnes Rocha | Jaguariaíva", description: "Casa de Carnes Rocha em Jaguariaíva: cortes para o churrasco, Angus, assados e atendimento no balcão. Veja os destaques e fale com a equipe." };
+export const viewport: Viewport = { themeColor: "#111110" };
+export default function RootLayout({ children }: { children: ReactNode }) { return <html lang="pt-BR"><head><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" /><link rel="stylesheet" href={"https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"} /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: "{\"@context\":\"https://schema.org\",\"@type\":\"Butcher\",\"name\":\"Casa de Carnes Rocha\",\"telephone\":\"+55-43-3535-3472\",\"address\":{\"@type\":\"PostalAddress\",\"streetAddress\":\"Av. Conde Francisco Matarazzo, 130\",\"addressLocality\":\"Jaguariaíva\",\"addressRegion\":\"PR\",\"postalCode\":\"84200-000\",\"addressCountry\":\"BR\"},\"sameAs\":[\"https://www.instagram.com/casa_de_carnes_rocha/\"]}" }} /></head><body>{children}</body></html>; }
