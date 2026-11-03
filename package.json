@@ -7,7 +7,7 @@
     "dev": "next dev",
     "prebuild": "node scripts/prepare-assets.mjs",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/serve.mjs",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
